@@ -8,7 +8,7 @@ const Navbar = () => {
     >
       <div className="mx-auto flex h-16 items-center justify-between px-6 md:px-10">
         <h1 className="font-anton text-3xl leading-none tracking-tight">
-          CODE RUSH
+          CODE RUSH 3.0
         </h1>
 
         <div className="flex items-center gap-6">
