@@ -6,13 +6,20 @@ const Hero = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-        gsap.set(".code", {
-  yPercent: 110,
-});
+      gsap.set(".code", {
+        yPercent: 110,
+      });
 
-gsap.set(".rush", {
-  yPercent: 110,
-});
+      gsap.set(".rush", {
+        yPercent: 110,
+      });
+
+      gsap.set(".laurel-left, .laurel-right", {
+        scaleY: 0,
+        opacity: 0,
+        transformOrigin: "bottom center",
+      });
+
       const tl = gsap.timeline();
 
       tl.to(".overlay", {
@@ -56,24 +63,36 @@ gsap.set(".rush", {
         )
 
         .to(
-  ".code",
-  {
-    yPercent: 0,
-    duration: 1.1,
-    ease: "power4.out",
-  },
-  "-=0.8"
-)
+          ".laurel-left, .laurel-right",
+          {
+            scaleY: 1,
+            opacity: 1,
+            duration: 1.3,
+            stagger: 0.15,
+            ease: "power4.out",
+          },
+          "-=0.8"
+        )
 
         .to(
-  ".rush",
-  {
-    yPercent: 0,
-    duration: 1.1,
-    ease: "power4.out",
-  },
-  "-=0.85"
-)
+          ".code",
+          {
+            yPercent: 0,
+            duration: 1.1,
+            ease: "power4.out",
+          },
+          "-=0.8"
+        )
+
+        .to(
+          ".rush",
+          {
+            yPercent: 0,
+            duration: 1.1,
+            ease: "power4.out",
+          },
+          "-=0.85"
+        )
 
         .from(
           ".subtitle",
@@ -117,7 +136,24 @@ gsap.set(".rush", {
       gsap.to(".year", {
         scale: 1.03,
         duration: 6,
-        yoyo: false,
+        ease: "sine.inOut",
+      });
+
+      gsap.to(".laurel-left", {
+        y: -10,
+        rotate: -2,
+        duration: 4,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+
+      gsap.to(".laurel-right", {
+        y: -10,
+        rotate: 2,
+        duration: 4,
+        repeat: -1,
+        yoyo: true,
         ease: "sine.inOut",
       });
     }, heroRef);
@@ -130,12 +166,9 @@ gsap.set(".rush", {
       ref={heroRef}
       className="relative min-h-screen overflow-hidden bg-zinc-50"
     >
-
       <div className="overlay absolute inset-0 z-[100] origin-top bg-black" />
 
-
       <div className="pinstripes absolute inset-0 bg-[repeating-linear-gradient(to_right,transparent_0px,transparent_58px,rgba(0,0,0,0.08)_59px,transparent_60px)]" />
-
 
       <div className="absolute inset-0 flex opacity-[0.04] pointer-events-none">
         <div className="olympic w-1/4 bg-blue-500" />
@@ -144,15 +177,11 @@ gsap.set(".rush", {
         <div className="olympic w-1/4 bg-red-500" />
       </div>
 
-
       <div className="year absolute inset-0 flex items-center justify-center pointer-events-none">
         <h1 className="font-anton text-[28vw] leading-none text-black/[0.03]">
           2026
         </h1>
       </div>
-
-     
-
 
       <div className="relative flex min-h-screen flex-col items-center justify-center px-4 text-center">
         <img
@@ -161,17 +190,68 @@ gsap.set(".rush", {
           className="logo mb-8 w-20 md:w-28"
         />
 
-       <div className="overflow-hidden py-1">
-  <h1 className="code font-anton text-[6rem] leading-[0.85] tracking-tight sm:text-[10rem] md:text-[14rem]">
-            
-            CODE
-          </h1>
-        </div>
+        <div className="relative flex items-center justify-center">
+         <img
+  src="/laurel-gold.png"
+  alt=""
+  className="
+    laurel-left
+    absolute
+    left-[-4rem]
+    sm:left-[-6rem]
+    md:left-[-10rem]
+    lg:left-[-14rem]
+    top-[0%]
+    w-[140px]
+    sm:w-[200px]
+    md:w-[280px]
+    lg:w-[400px]
+    pointer-events-none
+    select-none
+  "
+  style={{
+    filter:
+      "drop-shadow(0 0 12px rgba(255,215,0,0.25))",
+  }}
+/>
 
-       <div className="overflow-hidden py-1">
-          <h1 className="rush font-anton text-[6rem] leading-[0.85] tracking-tight sm:text-[10rem] md:text-[14rem]">
-            RUSH
-          </h1>
+          <div>
+            <div className="overflow-hidden py-1">
+              <h1 className="code font-anton text-[6rem] leading-[0.85] tracking-tight text-zinc-900 sm:text-[10rem] md:text-[14rem]">
+                CODE
+              </h1>
+            </div>
+
+            <div className="overflow-hidden py-1">
+              <h1 className="rush font-anton text-[6rem] leading-[0.85] tracking-tight text-zinc-900 sm:text-[10rem] md:text-[14rem]">
+                RUSH
+              </h1>
+            </div>
+          </div>
+
+          {/* RIGHT LAUREL */}
+        <div
+  className="
+    laurel-right
+    absolute
+    right-[-4rem]
+    sm:right-[-6rem]
+    md:right-[-10rem]
+    lg:right-[-14rem]
+    top-[0%]
+    -translate-y-1/2
+  "
+>
+  <img
+    src="/laurel-gold.png"
+    alt=""
+    className="w-[140px] sm:w-[200px] md:w-[280px] lg:w-[400px] -scale-x-100"
+     style={{
+    filter:
+      "drop-shadow(0 0 12px rgba(255,215,0,0.25))",
+  }}
+  />
+</div>
         </div>
 
         <p className="subtitle mt-6 max-w-md text-[10px] uppercase tracking-[0.35em] text-zinc-500 sm:text-xs">
@@ -185,7 +265,6 @@ gsap.set(".rush", {
           </p>
         </div>
       </div>
-
 
       <div className="fixed bottom-0 left-0 flex h-3 w-full overflow-hidden">
         <div className="color-segment w-1/4 bg-blue-500" />
