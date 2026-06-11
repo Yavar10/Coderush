@@ -8,6 +8,15 @@ body {
   font-family: "Anton", sans-serif;
 }
 
+.menu-item:hover {
+  letter-spacing: -0.03em;
+}
+
+.menu-item:hover .eye {
+  transform: rotate(180deg);
+}
+
+
 @keyframes marquee {
   from {
     transform: translateX(0%);
