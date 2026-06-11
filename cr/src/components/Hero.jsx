@@ -19,143 +19,113 @@ const Hero = () => {
         opacity: 0,
         transformOrigin: "bottom center",
       });
+const tl = gsap.timeline();
 
-      const tl = gsap.timeline();
+tl.to(".overlay", {
+  scaleY: 0,
+  transformOrigin: "top",
+  duration: 0.8,
+  ease: "power4.inOut",
+})
 
-      tl.to(".overlay", {
-        scaleY: 0,
-        transformOrigin: "top",
-        duration: 1.1,
-        ease: "power4.inOut",
-      })
+  .from(
+    ".olympic",
+    {
+      y: "100%",
+      stagger: 0.05,
+      duration: 0.8,
+      ease: "power4.out",
+    },
+    "-=0.3"
+  )
 
-        .from(
-          ".olympic",
-          {
-            y: "100%",
-            stagger: 0.08,
-            duration: 1.2,
-            ease: "power4.out",
-          },
-          "-=0.5"
-        )
+  .from(
+    ".logo",
+    {
+      y: -30,
+      opacity: 0,
+      duration: 0.7,
+      ease: "power4.out",
+    },
+    "-=0.4"
+  )
 
-        .from(
-          ".logo",
-          {
-            y: -40,
-            opacity: 0,
-            duration: 1,
-            ease: "power4.out",
-          },
-          "-=0.6"
-        )
+  .from(
+    ".year",
+    {
+      opacity: 0,
+      scale: 1.05,
+      duration: 0.8,
+      ease: "power3.out",
+    },
+    "-=0.5"
+  )
 
-        .from(
-          ".year",
-          {
-            opacity: 0,
-            scale: 1.1,
-            duration: 1.2,
-            ease: "power3.out",
-          },
-          "-=0.8"
-        )
+  .to(
+    ".laurel-left, .laurel-right",
+    {
+      scaleY: 1,
+      opacity: 1,
+      duration: 0.8,
+      stagger: 0.08,
+      ease: "power4.out",
+    },
+    "-=0.4"
+  )
 
-        .to(
-          ".laurel-left, .laurel-right",
-          {
-            scaleY: 1,
-            opacity: 1,
-            duration: 1.3,
-            stagger: 0.15,
-            ease: "power4.out",
-          },
-          "-=0.8"
-        )
+  .to(
+    ".code",
+    {
+      yPercent: 0,
+      duration: 0.75,
+      ease: "power4.out",
+    },
+    "-=0.4"
+  )
 
-        .to(
-          ".code",
-          {
-            yPercent: 0,
-            duration: 1.1,
-            ease: "power4.out",
-          },
-          "-=0.8"
-        )
+  .to(
+    ".rush",
+    {
+      yPercent: 0,
+      duration: 0.75,
+      ease: "power4.out",
+    },
+    "-=0.55"
+  )
 
-        .to(
-          ".rush",
-          {
-            yPercent: 0,
-            duration: 1.1,
-            ease: "power4.out",
-          },
-          "-=0.85"
-        )
+  .from(
+    ".subtitle",
+    {
+      y: 15,
+      opacity: 0,
+      duration: 0.5,
+      ease: "power3.out",
+    },
+    "-=0.3"
+  )
 
-        .from(
-          ".subtitle",
-          {
-            y: 20,
-            opacity: 0,
-            duration: 0.8,
-          },
-          "-=0.5"
-        )
+  .from(
+    ".scroll",
+    {
+      opacity: 0,
+      y: 15,
+      duration: 0.5,
+      ease: "power3.out",
+    },
+    "-=0.2"
+  )
 
-        .from(
-          ".scroll",
-          {
-            opacity: 0,
-            y: 20,
-            duration: 0.8,
-          },
-          "-=0.4"
-        )
-
-        .from(
-          ".color-segment",
-          {
-            scaleY: 0,
-            transformOrigin: "bottom",
-            stagger: 0.08,
-            duration: 0.7,
-            ease: "power4.out",
-          },
-          "-=0.6"
-        );
-
-      gsap.to(".pinstripes", {
-        x: -60,
-        duration: 10,
-        repeat: -1,
-        ease: "none",
-      });
-
-      gsap.to(".year", {
-        scale: 1.03,
-        duration: 6,
-        ease: "sine.inOut",
-      });
-
-      gsap.to(".laurel-left", {
-        y: -10,
-        rotate: -2,
-        duration: 4,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-
-      gsap.to(".laurel-right", {
-        y: -10,
-        rotate: 2,
-        duration: 4,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
+  .from(
+    ".color-segment",
+    {
+      scaleY: 0,
+      transformOrigin: "bottom",
+      stagger: 0.05,
+      duration: 0.4,
+      ease: "power4.out",
+    },
+    "-=0.3"
+  );
     }, heroRef);
 
     return () => ctx.revert();
@@ -278,3 +248,113 @@ const Hero = () => {
 };
 
 export default Hero;
+
+//faster timeline hero animation speed
+
+/* const tl = gsap.timeline();
+
+tl.to(".overlay", {
+  scaleY: 0,
+  transformOrigin: "top",
+  duration: 0.8,
+  ease: "power4.inOut",
+})
+
+  .from(
+    ".olympic",
+    {
+      y: "100%",
+      stagger: 0.05,
+      duration: 0.8,
+      ease: "power4.out",
+    },
+    "-=0.3"
+  )
+
+  .from(
+    ".logo",
+    {
+      y: -30,
+      opacity: 0,
+      duration: 0.7,
+      ease: "power4.out",
+    },
+    "-=0.4"
+  )
+
+  .from(
+    ".year",
+    {
+      opacity: 0,
+      scale: 1.05,
+      duration: 0.8,
+      ease: "power3.out",
+    },
+    "-=0.5"
+  )
+
+  .to(
+    ".laurel-left, .laurel-right",
+    {
+      scaleY: 1,
+      opacity: 1,
+      duration: 0.8,
+      stagger: 0.08,
+      ease: "power4.out",
+    },
+    "-=0.4"
+  )
+
+  .to(
+    ".code",
+    {
+      yPercent: 0,
+      duration: 0.75,
+      ease: "power4.out",
+    },
+    "-=0.4"
+  )
+
+  .to(
+    ".rush",
+    {
+      yPercent: 0,
+      duration: 0.75,
+      ease: "power4.out",
+    },
+    "-=0.55"
+  )
+
+  .from(
+    ".subtitle",
+    {
+      y: 15,
+      opacity: 0,
+      duration: 0.5,
+      ease: "power3.out",
+    },
+    "-=0.3"
+  )
+
+  .from(
+    ".scroll",
+    {
+      opacity: 0,
+      y: 15,
+      duration: 0.5,
+      ease: "power3.out",
+    },
+    "-=0.2"
+  )
+
+  .from(
+    ".color-segment",
+    {
+      scaleY: 0,
+      transformOrigin: "bottom",
+      stagger: 0.05,
+      duration: 0.4,
+      ease: "power4.out",
+    },
+    "-=0.3"
+  ); */
