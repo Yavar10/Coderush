@@ -80,6 +80,10 @@ body {
   animation: flamePulse 0.6s infinite alternate;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @keyframes flamePulse {
   from {
     transform: scale(0.9);

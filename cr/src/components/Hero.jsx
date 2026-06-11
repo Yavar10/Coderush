@@ -163,6 +163,7 @@ const Hero = () => {
 
   return (
     <section
+     id="home"
       ref={heroRef}
       className="relative min-h-screen overflow-hidden bg-zinc-50"
     >

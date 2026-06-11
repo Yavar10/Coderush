@@ -75,7 +75,7 @@ export default function Timeline6() {
 
   return (
     <section
-      id="timeline6"
+      id="timeline"
       ref={sectionRef}
       className="relative overflow-hidden bg-[#07111F] py-20 md:py-32"
     >
