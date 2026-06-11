@@ -105,7 +105,7 @@ export default function Timeline6() {
         {/* Heading */}
         <div className="mb-14 md:mb-24 text-center">
           <p className="mb-4 text-xs sm:text-sm uppercase tracking-[0.35em] md:tracking-[0.5em] text-[#D4AF37]">
-            Olympic Event Schedule
+            CodeRush Events Schedule
           </p>
 
           <h2 className="text-4xl sm:text-5xl md:text-8xl font-black uppercase text-white">
