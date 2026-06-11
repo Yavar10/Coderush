@@ -97,7 +97,7 @@ const Footer = () => {
               Enter the arena and compete with the best developers.
             </p>
 
-            <a href="www.devfolio.co" className="px-8 py-4 rounded-full border border-white/20 hover:bg-white hover:text-black transition-all">
+            <a href="https://devfolio.co" target="_blank" className="px-8 py-4 rounded-full border border-white/20 hover:bg-white hover:text-black transition-all">
               Register Now →
             </a>
           </div>
