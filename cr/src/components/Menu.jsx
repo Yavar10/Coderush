@@ -3,31 +3,43 @@ import { useState } from "react";
 const menuItems = [
   {
     label: "HOME",
+    href: "#home",
+    external: false,
     color: "#ef4444",
     path: "M20 80 C150 0,250 110,450 60 S780 30,980 70",
   },
   {
     label: "TIMELINE",
+    href: "#timeline",
+    external: false,
     color: "#3b82f6",
     path: "M20 90 Q200 0 500 70 T980 40",
   },
   {
     label: "ELIGIBILITY",
+    href: "#eligibility",
+    external: false,
     color: "#eab308",
     path: "M20 50 C250 120,300 0,500 60 S700 120,980 30",
   },
   {
     label: "ABOUT",
+    href: "#about",
+    external: false,
     color: "#22c55e",
     path: "M20 80 C150 30,350 100,550 40 S850 10,980 80",
   },
   {
     label: "SPONSORS",
+    href: "#sponsors",
+    external: false,
     color: "#ef4444",
     path: "M20 70 C180 20,400 110,600 40 S850 120,980 60",
   },
   {
     label: "REGISTER",
+    href: "https://devfolio.co",
+    external: true,
     color: "#3b82f6",
     path: "M20 90 C200 20,350 100,600 50 S900 10,980 70",
   },
@@ -41,7 +53,6 @@ export default function FullscreenMenu({
 
   return (
     <div className="fixed inset-0 z-40 pointer-events-none">
-      {/* Backdrop */}
       <div
         onClick={onClose}
         className={`absolute inset-0 bg-black/10 backdrop-blur-[2px] transition-all duration-500 ${
@@ -51,7 +62,6 @@ export default function FullscreenMenu({
         }`}
       />
 
-      {/* Menu Panel */}
       <div
         className={`
           absolute right-0 top-0 h-full
@@ -70,10 +80,46 @@ export default function FullscreenMenu({
       >
         <div className="flex h-full max-w-[420px] flex-col justify-center px-6 sm:px-8 md:max-w-none md:px-16 lg:px-20">
           {menuItems.map((item, index) => (
-            <button
+            <a
               key={item.label}
-              onMouseEnter={() => setHovered(index)}
-              onMouseLeave={() => setHovered(null)}
+              href={item.href}
+              target={
+                item.external
+                  ? "_blank"
+                  : undefined
+              }
+              rel={
+                item.external
+                  ? "noopener noreferrer"
+                  : undefined
+              }
+              onClick={(e) => {
+  if (item.external) {
+    onClose();
+    return;
+  }
+
+  e.preventDefault();
+
+  setHovered(index);
+
+  setTimeout(() => {
+    document
+      .querySelector(item.href)
+      ?.scrollIntoView({
+        behavior: "smooth",
+      });
+
+    onClose();
+    setHovered(null);
+  }, 300);
+}}
+              onMouseEnter={() =>
+                setHovered(index)
+              }
+              onMouseLeave={() =>
+                setHovered(null)
+              }
               className={`
                 group relative flex items-center gap-3 md:gap-4 text-left
                 transition-all duration-700
@@ -98,8 +144,6 @@ export default function FullscreenMenu({
                   : "0ms",
               }}
             >
-              {/* Target Icon */}
-
               <svg
                 width="20"
                 height="20"
@@ -126,8 +170,6 @@ export default function FullscreenMenu({
                 />
               </svg>
 
-              {/* Text */}
-
               <span
                 className={`
                   relative z-10
@@ -148,10 +190,9 @@ export default function FullscreenMenu({
                 {item.label}
               </span>
 
-              {/* Marker Scribble */}
-
               <svg
                 className="
+                  hidden md:block
                   pointer-events-none
                   absolute
                   left-0
@@ -165,8 +206,6 @@ export default function FullscreenMenu({
                 "
                 viewBox="0 0 1000 120"
               >
-                {/* Main stroke */}
-
                 <path
                   d={item.path}
                   fill="none"
@@ -188,8 +227,6 @@ export default function FullscreenMenu({
                       "stroke-dashoffset .8s cubic-bezier(.77,0,.18,1), opacity .25s",
                   }}
                 />
-
-                {/* Sketch overlay */}
 
                 <path
                   d={item.path}
@@ -214,12 +251,10 @@ export default function FullscreenMenu({
                   }}
                 />
               </svg>
-            </button>
+            </a>
           ))}
         </div>
       </div>
     </div>
   );
 }
-
-
