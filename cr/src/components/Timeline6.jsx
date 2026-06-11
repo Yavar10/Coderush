@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef ,useEffect} from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -16,6 +16,34 @@ const events = [
 
 export default function Timeline6() {
   const sectionRef = useRef(null);
+
+  useEffect(() => {
+  const checkpoints = document.querySelectorAll(".checkpoint");
+
+  checkpoints.forEach((cp) => {
+    const enter = () => {
+      cp.classList.add("checkpoint-fire");
+    };
+
+    const leave = () => {
+      cp.classList.remove("checkpoint-fire");
+    };
+
+    cp.addEventListener("mouseenter", enter);
+    cp.addEventListener("mouseleave", leave);
+
+    cp._enter = enter;
+    cp._leave = leave;
+  });
+
+  return () => {
+    checkpoints.forEach((cp) => {
+      cp.removeEventListener("mouseenter", cp._enter);
+      cp.removeEventListener("mouseleave", cp._leave);
+    });
+  };
+}, []);
+
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
