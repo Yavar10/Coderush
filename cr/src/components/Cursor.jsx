@@ -5,15 +5,15 @@ export default function Cursor() {
   const dotRef = useRef(null);
   const ringRef = useRef(null);
 
-  useEffect(() => {
-    // Disable on touch devices
-    if (
-      "ontouchstart" in window ||
-      navigator.maxTouchPoints > 0
-    ) {
-      return;
-    }
+  const isTouchDevice =
+    typeof window !== "undefined" &&
+    ("ontouchstart" in window ||
+      navigator.maxTouchPoints > 0);
 
+  // Don't render cursor on touch devices
+  if (isTouchDevice) return null;
+
+  useEffect(() => {
     const colors = [
       "#DF0024", // red
       "#0085C7", // blue
