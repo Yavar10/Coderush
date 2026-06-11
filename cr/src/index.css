@@ -15,7 +15,11 @@ body {
 .menu-item:hover .eye {
   transform: rotate(180deg);
 }
-
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
 
 @keyframes marquee {
   from {
