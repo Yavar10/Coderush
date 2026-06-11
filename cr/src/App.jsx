@@ -6,6 +6,8 @@ import Timeline from "./components/Timeline";
 import Timeline6 from "./components/Timeline6";
 import Sponsors from "./components/Sponsers";
 import Cursor from "./components/Cursor";
+import About from "./components/About";
+import Eligibility from "./components/Eligibility";
 
 const App = () => {
   return (
@@ -13,6 +15,8 @@ const App = () => {
   <Cursor/>
   <Navbar/>
    <Hero/>
+   <About/>
+   <Eligibility/>
    <Timeline6/>
    <Sponsors/>
    <Footer/>
