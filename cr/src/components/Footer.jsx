@@ -97,9 +97,9 @@ const Footer = () => {
               Enter the arena and compete with the best developers.
             </p>
 
-            <button className="px-8 py-4 rounded-full border border-white/20 hover:bg-white hover:text-black transition-all">
+            <a href="www.devfolio.co" className="px-8 py-4 rounded-full border border-white/20 hover:bg-white hover:text-black transition-all">
               Register Now →
-            </button>
+            </a>
           </div>
 
           {/* Timeline */}
@@ -113,9 +113,9 @@ const Footer = () => {
               Stay ahead with event milestones and submission dates.
             </p>
 
-            <button className="px-8 py-4 rounded-full border border-white/20 hover:bg-white hover:text-black transition-all">
+            <a href="#timeline" className="px-8 py-4 rounded-full border border-white/20 hover:bg-white hover:text-black transition-all">
               View Schedule →
-            </button>
+            </a>
           </div>
 
           {/* Social */}

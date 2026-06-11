@@ -21,7 +21,7 @@ const Navbar = () => {
 
           <div className="flex items-center gap-6">
             <a
-  href="https://your-registration-link.com"
+  href="https://devfolio.co"
   target="_blank"
   rel="noopener noreferrer"
   className="cursor-hover group relative overflow-hidden border border-black px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em]"
