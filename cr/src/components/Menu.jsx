@@ -112,7 +112,7 @@ export default function FullscreenMenu({
 
     onClose();
     setHovered(null);
-  }, 300);
+  }, 500);
 }}
               onMouseEnter={() =>
                 setHovered(index)
@@ -192,7 +192,7 @@ export default function FullscreenMenu({
 
               <svg
                 className="
-                  hidden md:block
+
                   pointer-events-none
                   absolute
                   left-0
