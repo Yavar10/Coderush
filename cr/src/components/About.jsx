@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const olympicColors = ["#0085C7", "#F4C300", "#009F3D", "#DF0024", "#000000"];
+const olympicColors = ["#0085C7", "#F4C300", "#009F3D", "#DF0024", "#ffffff"];
 
 const pillars = [
   {
