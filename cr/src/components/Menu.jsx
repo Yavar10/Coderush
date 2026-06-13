@@ -38,7 +38,7 @@ const menuItems = [
   },
   {
     label: "REGISTER",
-    href: "https://devfolio.co",
+    href: "https://unstop.com",
     external: true,
     color: "#3b82f6",
     path: "M20 90 C200 20,350 100,600 50 S900 10,980 70",

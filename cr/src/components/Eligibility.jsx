@@ -1,14 +1,14 @@
-import { useLayoutEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { motion } from "framer-motion";
+import { useLayoutEffect, useRef } from "react";
 import {
-  FaGraduationCap,
-  FaUsers,
-  FaIdCard,
-  FaCode,
   FaBalanceScale,
   FaClipboardList,
+  FaCode,
+  FaGraduationCap,
+  FaIdCard,
+  FaUsers,
 } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -58,9 +58,9 @@ const rules = [
   },
   {
     id: "06",
-    title: "Registration on Devfolio",
+    title: "Registration on Unstop",
     description:
-      "All participants must register through the official Devfolio page before the deadline. Walk-in entries are not accepted.",
+      "All participants must register through the official Unstop page before the deadline. Walk-in entries are not accepted.",
     icon: FaClipboardList,
     color: "#F4C300",
   },
@@ -289,7 +289,7 @@ export default function Eligibility() {
 
             <div className="flex flex-col items-center gap-6">
               <a
-                href="https://devfolio.co"
+                href="https://unstop.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative overflow-hidden border-2 border-black px-10 py-4 md:px-14 md:py-5 text-sm md:text-base font-bold uppercase tracking-[0.2em]"

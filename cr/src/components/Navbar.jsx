@@ -118,7 +118,7 @@ const Navbar = () => {
             <div className="flex items-center gap-4 md:gap-5">
               {/* Register button */}
               <a
-                href="https://devfolio.co"
+                href="https://unstop.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cursor-hover group relative overflow-hidden border border-black/80 text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.2em] px-4 py-2 md:px-5 md:py-2.5"

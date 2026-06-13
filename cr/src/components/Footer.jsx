@@ -1,9 +1,10 @@
 import {
   FaInstagram,
   FaLinkedinIn,
-  FaDiscord,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import { SiUnstop } from "react-icons/si";
+
 
 const Footer = () => {
   return (
@@ -235,7 +236,7 @@ const Footer = () => {
               Enter the arena and compete with the best developers.
             </p>
 
-            <a href="https://devfolio.co" target="_blank" className="px-8 py-4 rounded-full border border-white/20 hover:bg-white hover:text-black transition-all">
+            <a href="https://unstop.com" target="_blank" className="px-8 py-4 rounded-full border border-white/20 hover:bg-white hover:text-black transition-all">
               Register Now →
             </a>
           </div>
@@ -286,7 +287,7 @@ const Footer = () => {
                 href="#"
                 className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition"
               >
-                <FaDiscord />
+                <SiUnstop />
               </a>
             </div>
           </div>
