@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import FullscreenMenu from "./Menu";
+import { SiUnstop } from "react-icons/si";
 
 const olympicColors = ["#0085C7", "#F4C300", "#009F3D", "#DF0024","#000000"];
 
@@ -121,8 +122,9 @@ const Navbar = () => {
                 href="https://unstop.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cursor-hover group relative overflow-hidden border border-black/80 text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.2em] px-4 py-2 md:px-5 md:py-2.5"
+                className=" flex items-center justify-center gap-2 cursor-hover group relative overflow-hidden border border-black/80 text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.2em] px-4 py-2 md:px-5 md:py-2.5"
               >
+                <SiUnstop className="h-4 w-4" />
                 <span className="relative z-10 transition-colors duration-500 group-hover:text-white">
                   Register
                 </span>
