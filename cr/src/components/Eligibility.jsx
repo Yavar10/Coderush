@@ -2,6 +2,14 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
+import {
+  FaGraduationCap,
+  FaUsers,
+  FaIdCard,
+  FaCode,
+  FaBalanceScale,
+  FaClipboardList,
+} from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,7 +21,7 @@ const rules = [
     title: "Open to All College Students",
     description:
       "Any undergraduate or postgraduate student currently enrolled in a recognized college or university is eligible to participate.",
-    icon: "🎓",
+    icon: FaGraduationCap,
     color: "#0085C7",
   },
   {
@@ -21,7 +29,7 @@ const rules = [
     title: "Individual or Team Entry",
     description:
       "Participate solo or form a team of up to 3 members. Team members can be from different colleges.",
-    icon: "👥",
+    icon: FaUsers,
     color: "#F4C300",
   },
   {
@@ -29,7 +37,7 @@ const rules = [
     title: "Valid College ID Required",
     description:
       "Each participant must present a valid college ID card or enrollment proof at the time of registration.",
-    icon: "🪪",
+    icon: FaIdCard,
     color: "#009F3D",
   },
   {
@@ -37,7 +45,7 @@ const rules = [
     title: "Proficiency in Any Language",
     description:
       "Solve problems in C, C++, Java, Python, or any language supported by the judging platform. No language restrictions.",
-    icon: "💻",
+    icon: FaCode,
     color: "#DF0024",
   },
   {
@@ -45,7 +53,7 @@ const rules = [
     title: "Fair Play Policy",
     description:
       "Plagiarism, external help, and code sharing between teams is strictly prohibited. Violations lead to instant disqualification.",
-    icon: "⚖️",
+    icon: FaBalanceScale,
     color: "#0085C7",
   },
   {
@@ -53,36 +61,31 @@ const rules = [
     title: "Registration on Devfolio",
     description:
       "All participants must register through the official Devfolio page before the deadline. Walk-in entries are not accepted.",
-    icon: "📋",
+    icon: FaClipboardList,
     color: "#F4C300",
   },
 ];
 
 function RuleCard({ rule, index }) {
+  const IconComponent = rule.icon;
+
   return (
     <motion.div
-      initial={{ opacity: 0, x: index % 2 === 0 ? -60 : 60 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{
         duration: 0.7,
-        delay: index * 0.1,
+        delay: index * 0.12,
         ease: [0.25, 0.46, 0.45, 0.94],
       }}
-      className="group relative"
+      className="group relative h-full"
     >
-      <div className="relative overflow-hidden border border-black/10 bg-white hover:shadow-xl transition-shadow duration-500">
+      <div className="relative overflow-hidden border border-black/10 bg-white hover:shadow-xl transition-shadow duration-500 h-full">
         {/* Left color accent */}
-        <motion.div
+        <div
           className="absolute left-0 top-0 h-full w-1"
-          initial={{ scaleY: 0 }}
-          whileInView={{ scaleY: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-          style={{
-            backgroundColor: rule.color,
-            transformOrigin: "top",
-          }}
+          style={{ backgroundColor: rule.color }}
         />
 
         <div className="flex items-start gap-5 p-6 md:p-8">
@@ -100,7 +103,15 @@ function RuleCard({ rule, index }) {
           <div className="flex-1 min-w-0">
             {/* Icon + Title */}
             <div className="flex items-center gap-3 mb-2">
-              <span className="text-xl md:text-2xl">{rule.icon}</span>
+              <div
+                className="flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-lg shrink-0"
+                style={{ backgroundColor: `${rule.color}12` }}
+              >
+                <IconComponent
+                  className="text-base md:text-lg"
+                  style={{ color: rule.color }}
+                />
+              </div>
               <h3 className="font-anton text-lg md:text-xl lg:text-2xl uppercase text-zinc-900 leading-tight">
                 {rule.title}
               </h3>
